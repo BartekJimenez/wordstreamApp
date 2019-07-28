@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+  <div class="jumbotron text-center">
+    <h1>Welcome To WordStream App</h1>
+    <p class="lead">This application is built on the Python Flask framework</p>
+    <!-- {% if session.logged_in == NULL %}
+      <a href="/register" class="btn btn-primary btn-lg">Register</a>
+      <a href="/login" class="btn btn-success btn-lg">Login</a>
+    {% endif %} -->
+    </div> 
+
+    <div class="boxed" align="center">
+            <form action = "/result" method = "POST">
+                <p>Dataset <input type = "text" name = "datasetType" /></p>
+                <p>Specific Parameter <input type = "text" name = "specParm" /></p>
+                <p><input type = "submit" value = "submit" /></p>
+             </form>
+    </div> 
+
+{% endblock %}

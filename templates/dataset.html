@@ -1,0 +1,13 @@
+
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>{{id}}</h1>
+
+  <ul class="list-group"></ul>
+      {% for data in selectedData %}
+      <li class="list-group-item">{{data}}</li>
+      {% endfor %}
+  </ul>
+</div>
+{% endblock %}
