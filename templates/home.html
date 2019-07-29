@@ -10,13 +10,40 @@
       <a href="/login" class="btn btn-success btn-lg">Login</a>
     {% endif %} -->
     </div> 
-
-    <div class="boxed" align="center">
-            <form action = "/result" method = "POST">
-                <p>Dataset <input type = "text" name = "datasetType" /></p>
-                <p>Specific Parameter <input type = "text" name = "specParm" /></p>
-                <p><input type = "submit" value = "submit" /></p>
-             </form>
+    <form action = "/result" method = "POST">
+    <div class="boxed" id="primaryGrid"align="center">
+            
+                <p>Items to compare <select name="comparer_id" id="comparer_id" onchange=showOrhideWidget()>
+                        <option value=1>1</option>
+                        <option value=2>2</option>
+                      </select></p> 
+                <p>Dataset <select name="datasetInput_id" id="datasetInput_id" onchange=handler()>
+                        <option value="cities">cities</option>
+                        <option value="countries">countries</option>
+                        <option value="geo_markets">geo_markets</option>
+                        <option value="location_types">location_types</option>
+                        <option value="regions">regions</option>
+                        <option value="zips">zips</option>
+                      </select>
+                <p><label id="specParmInput_key_label">Specific Parameter key </label><input type = "text" name="specParmInput_key" id="specParmInput_key" value="skip";/></p>
+                <p><label id="specParmInput_value_label">Specific Parameter value </label> <input type = "text" name="specParmInput_value" id="specParmInput_value" value="skip";/></p>          
+         
     </div> 
 
+    <div class="boxed" id="secondaryGrid" align="center">
+            
+            <p>Dataset 2<select name="datasetInput_id2" id="datasetInput_id2" onchange=handler()>
+                    <option value="cities">cities</option>
+                    <option value="countries">countries</option>
+                    <option value="geo_markets">geo_markets</option>
+                    <option value="location_types">location_types</option>
+                    <option value="regions">regions</option>
+                    <option value="zips">zips</option>
+                  </select>
+            <p><label id="specParmInput_key_label2">Specific Parameter key 2</label><input type = "text" name="specParmInput_key2" id="specParmInput_key2" value="skip";/></p>
+            <p><label id="specParmInput_value_label2">Specific Parameter value 2</label> <input type = "text" name="specParmInput_value2" id="specParmInput_value2" value="skip";/></p>          
+     
+</div> 
+    <p><input type = "submit" value = "submit" /></p>
+</form>
 {% endblock %}

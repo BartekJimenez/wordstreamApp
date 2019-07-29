@@ -63,22 +63,26 @@ class DataHarvester:
                         tempGlossary[x] = results
                 return tempGlossary
 
-        def createMeasurementList(self, dataset='skip', criteria='skip'):
+        def createMeasurementList(self, dataset='skip', criteriaKey='skip', criteriaValue='skip'):
                 tempList = []
-                if dataset == 'skip' and criteria == 'skip':
+                if dataset == 'skip' and criteriaKey == 'skip' and criteriaValue == 'skip':
                         for x in self.glossary:
                                 tempList.append(x)
-                elif dataset != 'skip ' and criteria == 'skip':
+                elif dataset != 'skip ' and criteriaKey == 'skip' and criteriaValue == 'skip':
                         for x in self.glossary[dataset]:
                                 tempList.append(x)    
-                elif dataset != 'skip' and criteria != 'skip':
+                elif dataset != 'skip' and criteriaKey != 'skip' and criteriaValue == 'skip':
                         for x in self.glossary[dataset]:
-                                tempList.append(x[criteria])           
+                                tempList.append(x[criteriaKey]) and criteriaValue == 'skip'  
+                elif dataset != 'skip' and criteriaKey != 'skip' and criteriaValue != 'skip':
+                        for x in self.glossary[dataset]:
+                                if criteriaKey in x.keys() and criteriaValue in x.values():
+                                    tempList.append(x[criteriaKey])
+
                 return tempList  
-        def returnTopMetric(self,dataset, criteria):
-                temp = self.createMeasurementList(dataset,criteria)
-                data = Counter(temp)
-                return (data.most_common(5))
+        def returnTopMetric(self,inputList):
+                data = Counter(inputList)
+                return data.most_common(5)
         def sort(self,unsortedList,criteria=0):
             return sorted(unsortedList, key=lambda k: k[criteria])
             
