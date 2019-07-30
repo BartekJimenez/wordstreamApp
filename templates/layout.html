@@ -12,6 +12,7 @@
   </head>
   <body>
         <script type="application/x-javascript" src="{{ url_for('static', filename='homeHandler.js') }}"></script>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/StyleSheet.css') }}">
         {% include 'includes/_navbar.html' %}
         <div class="container">
                 {% block body %}{% endblock %}

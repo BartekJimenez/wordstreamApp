@@ -41,22 +41,26 @@ def dataset(id):
 
 @app.route('/result',methods = ['POST'])
 def result():
-    if request.method == 'POST':
-        tempResult = request.form
+    try:
+        if request.method == 'POST':
+            tempResult = request.form
+            amountOfDatasets = int(tempResult['comparer_id'])
+            tempHold = dataObject.createMeasurementList(tempResult['datasetInput_id1'],tempResult['specParmInput_key1'],tempResult['specParmInput_value1'])        
+            if amountOfDatasets == 1:
+                gotValues = dataObject.returnTopMetric(tempHold,int(tempResult['amountOfResults']))
 
-        tempHold = dataObject.createMeasurementList(tempResult['datasetInput_id'],tempResult['specParmInput_key'],tempResult['specParmInput_value'])        
-        print(type(int(tempResult['comparer_id'])))
-        if int(tempResult['comparer_id']) == 2:
-            tempHold2 = dataObject.createMeasurementList(tempResult['datasetInput_id2'],tempResult['specParmInput_key2'],tempResult['specParmInput_value2'])
-            addLists = tempHold + tempHold2
-            print("@@@@@@@@@@@@@@@@@@@@")
-            print(len(tempHold))
-            print(len(tempHold2))
-            gotValues = dataObject.returnTopMetric(addLists)
-        else:
-            gotValues = dataObject.returnTopMetric(tempHold)
-
-        return render_template("result.html",result = gotValues)
+            elif amountOfDatasets == 2:
+                tempHold2 = dataObject.createMeasurementList(tempResult['datasetInput_id2'],tempResult['specParmInput_key2'],tempResult['specParmInput_value2'])
+                addLists = tempHold + tempHold2
+                gotValues = dataObject.returnTopMetric(addLists,int(tempResult['amountOfResults']))
+            elif amountOfDatasets == 3:
+                tempHold2 = dataObject.createMeasurementList(tempResult['datasetInput_id2'],tempResult['specParmInput_key2'],tempResult['specParmInput_value2'])
+                tempHold3 = dataObject.createMeasurementList(tempResult['datasetInput_id3'],tempResult['specParmInput_key3'],tempResult['specParmInput_value3'])
+                addLists = tempHold + tempHold2 + tempHold3
+                gotValues = dataObject.returnTopMetric(addLists,int(tempResult['amountOfResults']))
+            return render_template("result.html",result = gotValues)
+    except:
+        return "request failed. Please try again and double check your input variables."
 
 
 

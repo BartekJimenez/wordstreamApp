@@ -5,45 +5,86 @@
   <div class="jumbotron text-center">
     <h1>Welcome To WordStream App</h1>
     <p class="lead">This application is built on the Python Flask framework</p>
-    <!-- {% if session.logged_in == NULL %}
-      <a href="/register" class="btn btn-primary btn-lg">Register</a>
-      <a href="/login" class="btn btn-success btn-lg">Login</a>
-    {% endif %} -->
     </div> 
-    <form action = "/result" method = "POST">
-    <div class="boxed" id="primaryGrid"align="center">
-            
-                <p>Items to compare <select name="comparer_id" id="comparer_id" onchange=showOrhideWidget()>
-                        <option value=1>1</option>
-                        <option value=2>2</option>
-                      </select></p> 
-                <p>Dataset <select name="datasetInput_id" id="datasetInput_id" onchange=handler()>
-                        <option value="cities">cities</option>
-                        <option value="countries">countries</option>
-                        <option value="geo_markets">geo_markets</option>
-                        <option value="location_types">location_types</option>
-                        <option value="regions">regions</option>
-                        <option value="zips">zips</option>
-                      </select>
-                <p><label id="specParmInput_key_label">Specific Parameter key </label><input type = "text" name="specParmInput_key" id="specParmInput_key" value="skip";/></p>
-                <p><label id="specParmInput_value_label">Specific Parameter value </label> <input type = "text" name="specParmInput_value" id="specParmInput_value" value="skip";/></p>          
-         
+   
+    <!-- add stylesheet here -->
+    <form onsubmit="return returnValidation();" action = "/result" target = "_blank" method = "POST">
+      <div align="center" id="errorHolder">
+        <label id ="errorMessage"></label>
+      </div>
+    <div id="primaryGrid" align="center">
+           <table>
+             <tr id="trHeader">
+               <th>Dataset:</th>
+               <th>Specific Parameter Key:</th>
+               <th>Specific Parameter Value:</th>
+             </tr>
+             <tr>
+               <td>
+                 <select name="datasetInput_id1" id = "datasetInput_id1" onchange="handler('1');">
+                  <option value="cities">cities</option>
+                  <option value="countries">countries</option>
+                  <option value="geo_markets">geo_markets</option>
+                  <option value="location_types">location_types</option>
+                  <option value="regions">regions</option>
+                  <option value="zips">zips</option>
+                </select>
+               </td>
+               <td><input type ="text" name="specParmInput_key1" id="specParmInput_key1" value="" /></td>
+               <td><input type ="text" name="specParmInput_value1" id="specParmInput_value1" value="skip" /></td>
+             </tr>
+           </table>
     </div> 
-
-    <div class="boxed" id="secondaryGrid" align="center">
-            
-            <p>Dataset 2<select name="datasetInput_id2" id="datasetInput_id2" onchange=handler()>
-                    <option value="cities">cities</option>
-                    <option value="countries">countries</option>
-                    <option value="geo_markets">geo_markets</option>
-                    <option value="location_types">location_types</option>
-                    <option value="regions">regions</option>
-                    <option value="zips">zips</option>
-                  </select>
-            <p><label id="specParmInput_key_label2">Specific Parameter key 2</label><input type = "text" name="specParmInput_key2" id="specParmInput_key2" value="skip";/></p>
-            <p><label id="specParmInput_value_label2">Specific Parameter value 2</label> <input type = "text" name="specParmInput_value2" id="specParmInput_value2" value="skip";/></p>          
-     
+    <!--  -->
+    <div class="hideDiv" id="secondaryGrid" align="center">
+      <table>
+        <tr>
+          <td>
+            <select name="datasetInput_id2" id = "datasetInput_id2" onchange="handler('2');">
+              <option value="cities">cities</option>
+              <option value="countries">countries</option>
+              <option value="geo_markets">geo_markets</option>
+              <option value="location_types">location_types</option>
+              <option value="regions">regions</option>
+              <option value="zips">zips</option>
+           </select>
+          </td>
+          <td><input type ="text" name="specParmInput_key2" id="specParmInput_key2" value="" /></td>
+          <td><input type ="text" name="specParmInput_value2" id="specParmInput_value2" value="skip" /></td>
+        </tr>
+      </table>
 </div> 
-    <p><input type = "submit" value = "submit" /></p>
+  <!--  -->
+  <div class="hideDiv" id="thirdGrid" align="center">
+    <table>
+      <tr>
+        <td>
+          <select name="datasetInput_id3" id = "datasetInput_id3" onchange="handler('3');">
+            <option value="cities">cities</option>
+            <option value="countries">countries</option>
+            <option value="geo_markets">geo_markets</option>
+            <option value="location_types">location_types</option>
+            <option value="regions">regions</option>
+            <option value="zips">zips</option>
+         </select>
+        </td>
+        <td><input type ="text" name="specParmInput_key3" id="specParmInput_key3" value="" /></td>
+        <td><input type ="text" name="specParmInput_value3" id="specParmInput_value3" value="skip" /></td>
+      </tr>
+    </table>
+    <!--  -->
+</div> 
+<div id="selectionBox" align="center">
+  <p>Amount of Datasets to Compare: <select name="comparer_id" id = "comparer_id" onchange="showOrhideWidget();">
+    <option value=1>1</option>
+    <option value=2>2</option>
+    <option value=3>3</option>
+
+  </select></p>
+  <p>Amount of Top Results to Return: <input type ="number" min="1" pattern="\d+" name="amountOfResults" id="amountOfResults" value=5 /></p>
+</div>
+
+
+    <p align="center"><input type = "submit" value = "submit" /></p>
 </form>
 {% endblock %}

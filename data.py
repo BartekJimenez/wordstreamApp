@@ -9,7 +9,7 @@ from collections import Counter
 class DataHarvester:
         def __init__(self, dataSource):
                 self.dataSource = dataSource
-                self.todos = json.loads(response.text)
+                self.todos = json.loads(self.dataSource.text)
                 self.data = self.todos['data']
                 self.amountOfVariables = len(self.data)
                 self.diffVariables = self.getAmountOfDifferentVariables(self.data)
@@ -32,6 +32,8 @@ class DataHarvester:
         def searchByCritiera(self,data, critiera, max):
             # this might be unused/worth of deletion
                 temp = []
+                tempConverted = []
+                tempConverted2 = []
                 final = []
                 multiples = []
                 counter = 0
@@ -46,10 +48,10 @@ class DataHarvester:
                                 pass
                         counter = counter + 1
                 #combine both as lists of dictionaries
-                for x in temp:
-                        for y in x:
-                                final.append(y)
-
+                # for x in temp:
+                #         for y in x:
+                #                 final.append(y)
+                final = [y for x in temp for y in x]
                 for x in multiples:
                         for y in x:
                                 final.append(y)
@@ -80,25 +82,14 @@ class DataHarvester:
                                     tempList.append(x[criteriaKey])
 
                 return tempList  
-        def returnTopMetric(self,inputList):
+        def returnTopMetric(self,inputList,amount):
                 data = Counter(inputList)
-                return data.most_common(5)
+                return data.most_common(amount)
         def sort(self,unsortedList,criteria=0):
             return sorted(unsortedList, key=lambda k: k[criteria])
             
 
-response = requests.get("https://app.wordstream.com/services/v1/wordstream/interview_data")
-
-# def runner():
-#     run = DataHarvester(response)
-#     return run.createMeasurementList()
-    
-# 
-
-# words_to_count = (word for word in results if word[:1].isupper())
-# c = Counter(words_to_count)
-# print(diffVariables)
-# print (c.most_common(5))
+# response = requests.get("https://app.wordstream.com/services/v1/wordstream/interview_data")
 
 
 

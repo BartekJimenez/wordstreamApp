@@ -2,12 +2,14 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-     <table border = 1>
+<div align="center">
+     <table >
         {% for key, value in result %}
            <tr>
-              <th> {{ key }} </th>
+              <td> {{ key }} </td>
               <td> {{ value }} </td>
            </tr>
         {% endfor %}
      </table>
+   </div>
 {% endblock %}
