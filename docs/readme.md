@@ -4,7 +4,7 @@ WordStream App is an app that takes json data from WordStream and parses the geo
 
 ## Installation
 
-Use git to clone the repositry https://github.com/BartekJimenez/wordstreamApp.git
+Use git to clone the repository https://github.com/BartekJimenez/wordstreamApp.git
 
 ```bash
 git clone https://github.com/BartekJimenez/wordstreamApp.git
@@ -40,7 +40,7 @@ Please also make sure you are using the lastest version of Chrome or Firefox. Ad
 
 
 
-navigate to the root, and type in your console on windows:
+Navigate to the root, and type in your console on windows:
 ```bash
 py .\app.py
 
@@ -108,5 +108,5 @@ which gets its data from:
 
  ## Conclusion
 
- I hope you enjoyed the app, please reach out if you have any questions! I tried to make an example app that can 'query' data from python objects stored in memory as opposed to traditional SQL databases. I think this was a fun exercise, and I hope you enjoyed reviewing my app!
+ I hope you enjoyed the app, please reach out to me if you have any questions! I tried to make an example app that can 'query' data from python objects stored in memory as opposed to traditional SQL databases. I think this was a fun exercise, and I hope you enjoyed reviewing my app!
 
