@@ -4,6 +4,7 @@ function __init__(){
       }
         if (performance.navigation.type == 1) {
           console.info( "This page is reloaded" );
+          //if the page reloads, we reload everything so that way no errors occur. 
           location.href = "/";
         } else {
           console.info( "This page is not reloaded");

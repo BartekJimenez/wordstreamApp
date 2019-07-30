@@ -40,11 +40,18 @@ Please also make sure you are using the lastest version of Chrome or Firefox. Ad
 
 
 
-navigate to the root, and type in your console:
+navigate to the root, and type in your console on windows:
 ```python
 py .\app.py
 
 ```
+
+non-windows machines:
+```python
+python app.py 
+
+```
+
 If your packages are all installed, you should be running the app. Get the url from the console, it should be : http://127.0.0.1:5000/
 
 You will notice that there's a home page, and a few tabs. Pay attention to these two tabs:
