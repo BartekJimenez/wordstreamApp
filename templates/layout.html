@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+{% assets "main_js" %}
+<script type="application/x-javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>WordStream App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+        <script type="application/x-javascript" src="{{ url_for('static', filename='homeHandler.js') }}"></script>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/StyleSheet.css') }}">
+        {% include 'includes/_navbar.html' %}
+        <div class="container">
+                {% block body %}{% endblock %}
+          </div>
+      
+
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>
