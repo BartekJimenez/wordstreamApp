@@ -4,6 +4,7 @@ function __init__(){
       }
         if (performance.navigation.type == 1) {
           console.info( "This page is reloaded" );
+          location.href = "/";
         } else {
           console.info( "This page is not reloaded");
         }

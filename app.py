@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 from flask_assets import Bundle, Environment
 from data import DataHarvester
-from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
 import json
 import requests
 
