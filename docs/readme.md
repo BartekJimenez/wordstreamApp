@@ -34,9 +34,11 @@ pip install requests
 pip install flask
 ```
 
-Please also make sure you are using Chrome or Firefox. Adblock may issues some complications with javascript, so if you notice the webapp isn't functioning properly you should try disabling that first.
+Please also make sure you are using the lastest version of Chrome or Firefox. Adblock may cause issues and some complications with javascript, so if you notice that the webapp isn't functioning properly you should try disabling that first.
 
 ## Usage
+
+
 
 navigate to the root, and type in your console:
 ```python
