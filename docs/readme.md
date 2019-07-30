@@ -95,7 +95,7 @@ which gets its data from:
 
 ![review threetwo](images/reviewThree-2.png)
 
- For a loose SQL statement, it is similar to a query of select 'country' from regions where key = 3847, but in this application you don't need to specify the key. The app does it automatically.
+ For a loose SQL statement, it is similar to a query of select 'country' from regions where key = 3847, but in this application you don't need to specify the key clause. The app does it automatically.
 
  ## Conclusion
 
