@@ -1,6 +1,6 @@
 # WordStream App
 
-WordStream App is an app that takes json data from WordStream and parses the geo_location data. 
+WordStream App is an app that takes json data from WordStream and parses the geo_locations data. 
 
 ## Installation
 
