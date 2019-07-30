@@ -41,13 +41,13 @@ Please also make sure you are using the lastest version of Chrome or Firefox. Ad
 
 
 navigate to the root, and type in your console on windows:
-```python
+```bash
 py .\app.py
 
 ```
 
 non-windows machines:
-```python
+```bash
 python app.py 
 
 ```
