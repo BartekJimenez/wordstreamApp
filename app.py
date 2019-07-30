@@ -15,7 +15,6 @@ assets = Environment(app)
 assets.register('main_js', js)
 
 
-# name = TextField('Name:', validators=[validators.required()])
 usableDataSets = dataObject.createMeasurementList()
 usableDataSets = dataObject.sort(usableDataSets)
 

@@ -14,7 +14,6 @@ class DataHarvester:
                 self.amountOfVariables = len(self.data)
                 self.diffVariables = self.getAmountOfDifferentVariables(self.data)
                 self.glossary = self.createGlossary(self.diffVariables)
-                # self.results = self.createMeasurementList()
         def getAmountOfDifferentVariables(self,data):
                 val = -1
                 tempSet = set()
@@ -30,10 +29,7 @@ class DataHarvester:
                 return tempSet
 
         def searchByCritiera(self,data, critiera, max):
-            # this might be unused/worth of deletion
-                temp = []
-                tempConverted = []
-                tempConverted2 = []
+                singles = []
                 final = []
                 multiples = []
                 counter = 0
@@ -43,15 +39,13 @@ class DataHarvester:
                                 if len(curr) > 1:
                                         multiples.append(curr)
                                 else:
-                                        temp.append(curr)
+                                        singles.append(curr)
                         except:
                                 pass
                         counter = counter + 1
-                #combine both as lists of dictionaries
-                # for x in temp:
-                #         for y in x:
-                #                 final.append(y)
-                final = [y for x in temp for y in x]
+# for list comprehension, one regular
+# We need to split the multiple dictionaries, but also run it on the singles to remove single dictionaries as well as we can create a list of dictionatires.
+                final = [y for x in singles for y in x]
                 for x in multiples:
                         for y in x:
                                 final.append(y)
